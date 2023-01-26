@@ -1,6 +1,7 @@
 <?php
 
 $files = [
+    __DIR__ . '/globals/pure_functions.php',
     __DIR__ . '/globals/global_constants.php',
     __DIR__ . '/globals/global_functions.php',
 ];

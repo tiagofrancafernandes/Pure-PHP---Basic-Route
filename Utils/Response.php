@@ -2,6 +2,8 @@
 
 namespace Utils;
 
+use App\Helpers\Helpers;
+
 class Response
 {
     public const TYPES = [
@@ -11,7 +13,7 @@ class Response
         ],
         'html' => [
             'header' => ['Content-Type', 'text/html; charset=UTF-8'],
-            'callable' => 'sprintf',
+            'callable' => 'print',
         ],
         'plain' => [
             'header' => ['Content-Type', 'text/plain; charset=UTF-8'],
@@ -97,6 +99,30 @@ class Response
     ): void
     {
         static::asType('html', $data, $httpCode, $headers);
+        die();
+    }
+
+    /**
+     * function view
+     *
+     * @param string $view
+     * @param array $data
+     * @param int $httpCode
+     * @param array $headers
+     *
+     * @return string
+     */
+    public static function view(
+        string $view,
+        array $data = [],
+        int $httpCode = 200,
+        array $headers = []
+    ) {
+        static::html(
+            Helpers::view($view, $data),
+            $httpCode,
+            $headers
+        );
         die();
     }
 

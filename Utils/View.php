@@ -27,7 +27,7 @@ class View
         $ds = \DIRECTORY_SEPARATOR;
         $viewPath = \str_replace('.', $ds, $view);
 
-        $finalViewPath = "{$this->viewsBasePath}{$ds}{$viewPath}.php";
+        $finalViewPath = "{$this->viewsBasePath}{$ds}{$viewPath}.view.php";
 
         if (!\file_exists($finalViewPath)) {
             \http_response_code(500);
@@ -44,6 +44,19 @@ class View
             );
         }
 
-        return require $finalViewPath;
+        $render = function (array $data) use ($finalViewPath) {
+            unset($data['__helpers']);
+
+            \extract($data);
+            $__helpers = [
+                'view' => function (string $viewName, array $dataToView = []) {
+                    return \App\Helpers\Helpers::view($viewName, $dataToView);
+                },
+            ];
+
+            return require $finalViewPath;
+        };
+
+        return $render($data);
     }
 }

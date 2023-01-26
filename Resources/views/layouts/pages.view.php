@@ -9,7 +9,11 @@
 </head>
 
 <body>
-    <h1>Index</h1>
+
+<?php $__helpers['view']('_includes.top') ?>
+<?php echo ($content ?? '') ?></h1>
+<?php $__helpers['view']('_includes.footer') ?>
+
 </body>
 
 </html>

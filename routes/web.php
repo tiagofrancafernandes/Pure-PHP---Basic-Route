@@ -11,6 +11,9 @@ $router = new Route();
  */
 
 $router->get('/', fn () => Response::view('pages.index'));
+$router->get('/about', fn () => Response::view('pages.about', [
+    'link' => '#link-aqui'
+]));
 
 // $router->post('login', function () {
 //     $login = RequestHelper::input('login');

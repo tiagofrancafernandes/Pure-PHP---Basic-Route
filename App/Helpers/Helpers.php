@@ -7,17 +7,31 @@ use Utils\View;
 class Helpers
 {
     /**
-     * function view
+     * function getView
      *
      * @param string $view
      * @param array $data
      * @return string
      */
-    public static function view(string $view, array $data = []): string
+    public static function getView(string $view, array $data = []): string
     {
-        $view = new View(
+        $viewRender = new View(
             __DIR__ . '/../../Resources/views/'
         );
-        return $view->renderView('pages.index', $data);
+
+        return $viewRender->renderView($view, $data);
+    }
+
+    /**
+     * function view
+     *
+     * @param string $view
+     * @param array $data
+     *
+     * @return void
+     */
+    public static function view(string $view, array $data = [])
+    {
+        print_r(static::getView($view, $data), true);
     }
 }

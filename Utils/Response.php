@@ -119,7 +119,7 @@ class Response
         array $headers = []
     ) {
         static::html(
-            Helpers::view($view, $data),
+            Helpers::getView($view, $data),
             $httpCode,
             $headers
         );

@@ -33,7 +33,7 @@ class Response
      */
     public static function asType(
         string $type,
-        mixed $data,
+        $data,
         int $httpCode = 200,
         array $headers = []
     ): void
@@ -74,7 +74,7 @@ class Response
      * @return void
      */
     public static function json(
-        mixed $data,
+        $data,
         int $httpCode = 200,
         array $headers = []
     ): void

@@ -43,12 +43,15 @@ class Route
      * return void
      */
     public function route(
-        array |string $method,
+        $method,
         string $uri,
         callable $action,
         ?string $routeName = null
     ): void {
         $uri = trim($uri);
+        if (!\in_array(\gettype($method), ['array', 'string'], true)) {
+            return;
+        }
 
         $methods = is_string($method) ? [trim($method)] : $method;
 

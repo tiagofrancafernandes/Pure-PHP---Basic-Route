@@ -9,7 +9,7 @@ class RequestHelper
      *
      * @return mixed
      */
-    public static function getServer(?string $key = null, mixed $default = null): mixed
+    public static function getServer(?string $key = null, mixed $default = null)
     {
         return $_SERVER[$key] ?? $default ?? $_SERVER;
     }
@@ -19,7 +19,7 @@ class RequestHelper
      *
      * @return mixed
      */
-    public static function getMethod(?string $default = null): mixed
+    public static function getMethod(?string $default = null)
     {
         return $_SERVER['REQUEST_METHOD'] ?? $default ?? $_SERVER;
     }
@@ -29,7 +29,7 @@ class RequestHelper
      *
      * @return mixed
      */
-    public static function getSession(?string $key = null, mixed $default = null): mixed
+    public static function getSession(?string $key = null, mixed $default = null)
     {
         return $_SESSION[$key] ?? $default ?? $_SESSION;
     }
@@ -39,7 +39,7 @@ class RequestHelper
      *
      * @return mixed
      */
-    public static function getFiles(?string $key = null, mixed $default = null): mixed
+    public static function getFiles(?string $key = null, mixed $default = null)
     {
         return $_FILES[$key] ?? $default ?? $_FILES;
     }
@@ -49,7 +49,7 @@ class RequestHelper
      *
      * @return mixed
      */
-    public static function getCookie(?string $key = null, mixed $default = null): mixed
+    public static function getCookie(?string $key = null, mixed $default = null)
     {
         return $_COOKIE[$key] ?? $default ?? $_COOKIE;
     }
@@ -59,7 +59,7 @@ class RequestHelper
      *
      * @return mixed
      */
-    public static function getEnv(?string $key = null, mixed $default = null): mixed
+    public static function getEnv(?string $key = null, mixed $default = null)
     {
         return $_ENV[$key] ?? $default ?? $_ENV;
     }
@@ -69,7 +69,7 @@ class RequestHelper
      *
      * @return mixed
      */
-    public static function getGet(?string $key = null, mixed $default = null): mixed
+    public static function getGet(?string $key = null, mixed $default = null)
     {
         return $_GET[$key] ?? $default ?? $_GET;
     }
@@ -79,7 +79,7 @@ class RequestHelper
      *
      * @return mixed
      */
-    public static function getRequest(?string $key = null, mixed $default = null): mixed
+    public static function getRequest(?string $key = null, mixed $default = null)
     {
         return $_REQUEST[$key] ?? $default ?? $_REQUEST;
     }
@@ -89,7 +89,7 @@ class RequestHelper
      *
      * @return mixed
      */
-    public static function getPost(?string $key = null, mixed $default = null): mixed
+    public static function getPost(?string $key = null, mixed $default = null)
     {
         return $_POST[$key] ?? $default ?? $_POST;
     }
@@ -181,8 +181,8 @@ class RequestHelper
      */
     public static function input(
         string $key,
-        mixed $default = null
-    ): mixed
+        $default = null
+    )
     {
         if (
             str_contains(

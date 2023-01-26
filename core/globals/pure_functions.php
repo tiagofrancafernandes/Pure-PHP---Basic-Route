@@ -111,7 +111,7 @@ if (!function_exists('arrGetByDot')) {
      *
      * @return mixed
      */
-    function arrGetByDot(array $sourceData, string $dotKey, mixed $defaultValue = null): mixed
+    function arrGetByDot(array $sourceData, string $dotKey, mixed $defaultValue = null)
     {
         if (!$dotKey || !trim($dotKey)) {
             return $defaultValue ?? null;
@@ -137,7 +137,7 @@ if (!function_exists('filterUsingDot')) {
      *
      * @return mixed
      */
-    function filterUsingDot(array $sourceData, array $dotKeys): mixed
+    function filterUsingDot(array $sourceData, array $dotKeys)
     {
         if (!array_is_list($dotKeys)) {
             return null;
